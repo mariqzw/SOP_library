@@ -41,9 +41,7 @@ public class UserServiceImpl implements UserService {
 
             return;
         }
-        userRepository.findByUsername(userDto.getUsername()).ifPresent(existingUser -> {
-            throw new IllegalArgumentException("Username already exists: " + userDto.getUsername());
-        });
+
         if (userRepository.findByUsername(userDto.getUsername()).isEmpty()) {
             userRepository.saveAndFlush(modelMapper.map(userDto, User.class));
         }

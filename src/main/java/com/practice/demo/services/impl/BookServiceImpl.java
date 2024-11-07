@@ -39,9 +39,6 @@ public class BookServiceImpl implements BookService {
             return;
         }
 
-        bookRepository.findByIsbn(bookDto.getIsbn()).ifPresent(existingBook -> {
-            throw new IllegalArgumentException("Book with such ISBN already exists: " + bookDto.getIsbn());
-        });
         if (bookRepository.findByIsbn(bookDto.getIsbn()).isEmpty()) {
             bookRepository.saveAndFlush(modelMapper.map(bookDto, Book.class));
         }
