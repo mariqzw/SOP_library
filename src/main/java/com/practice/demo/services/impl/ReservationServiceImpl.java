@@ -26,7 +26,6 @@ public class ReservationServiceImpl implements ReservationService {
     private UserRepository userRepository;
     private final ModelMapper modelMapper;
     private final ValidationUtil validationUtil;
-    private final DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
 
     @Autowired
     public ReservationServiceImpl(ModelMapper modelMapper, ValidationUtil validationUtil) {
