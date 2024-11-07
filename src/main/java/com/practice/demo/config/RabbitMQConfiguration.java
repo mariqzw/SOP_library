@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitMQConfiguration {
 
     public static final String QUEUE_NAME = "bookReservationQueue";
-    public static final String EXCHANGE_NAME = "testExchange";
+    public static final String EXCHANGE_NAME = "bookExchange";
     @Bean
     public Queue queue() {
         return new Queue(QUEUE_NAME, false);
