@@ -1,0 +1,53 @@
+type Query {
+    books(titleFilter: String): [Book]
+    users(usernameFilter: String): [User]
+    reservations(reservationFilter: String): [Reservation]
+}
+
+type Book {
+    id: ID
+    title: String
+    publicationYear: Int
+    author: String
+}
+
+type User {
+    id: ID
+    username: String
+    email: String
+    name: String
+    surname: String
+}
+
+type Reservation {
+    id: ID
+    bookId: ID
+    userId: ID
+    reservedAt: String
+    reservedUntil: String
+}
+
+type Mutation {
+    addBook(book: SubmittedBook): Book
+    addUser(user: SubmittedUser): User
+    addReservation(reservation: SubmittedReservation): Reservation
+}
+
+
+input SubmittedBook {
+    title: String!
+    publicationYear: Int!
+    author: String!
+}
+
+input SubmittedUser {
+    username: String!
+    email: String!
+    name: String!
+    surname: String!
+}
+
+input SubmittedReservation {
+    bookTitle: String!
+    username: String!
+}

@@ -1,0 +1,12 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: library-db
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "Lg2003"
+      POSTGRES_DB: "librarySOP"
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
