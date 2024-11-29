@@ -2,15 +2,11 @@ package com.practice.demo.controllers;
 
 import com.practice.demo.hateoas.assembler.UserAssembler;
 import com.practice.demo.hateoas.model.UserModel;
-import com.practice.demo.models.Book;
-import com.practice.demo.models.User;
 import com.practice.demo.services.UserService;
+import com.practice.demo.services.dtos.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
@@ -30,13 +26,23 @@ public class UserController {
         this.userAssembler = userAssembler;
     }
 
+    @PostMapping("/add")
+    public void addUser(@RequestBody UserDto userDto) {
+        userService.register(userDto);
+    }
+
     @GetMapping("/all")
     public CollectionModel<UserModel> getAllUsers() {
         return userAssembler.toCollectionModel(userService.getAll());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public UserModel getUserById(@PathVariable UUID id) {
         return userAssembler.toModel(userService.findUserDtoById(id));
+    }
+
+    @GetMapping("/username/{username}")
+    public UserModel getUserByUsername(@PathVariable String username) {
+        return userAssembler.toModel(userService.findByUsername(username));
     }
 }
