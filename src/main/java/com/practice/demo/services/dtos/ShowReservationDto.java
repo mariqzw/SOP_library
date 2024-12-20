@@ -1,6 +1,8 @@
 package com.practice.demo.services.dtos;
 
-import java.time.LocalDateTime;
+import com.practice.demo.enums.Status;
+
+import java.time.LocalDate;
 import java.util.UUID;
 
 public class ShowReservationDto extends BaseEntityDto {
@@ -8,38 +10,23 @@ public class ShowReservationDto extends BaseEntityDto {
     private UUID userId;
 //    private BookDto book;
 //    private UserDto user;
-    private LocalDateTime reservedAt;
-    private LocalDateTime reservedUntil;
+    private LocalDate reservedAt;
+    private LocalDate reservedUntil;
+    private Status status;
 
-    public LocalDateTime getReservedAt() {
+    public LocalDate getReservedAt() {
         return reservedAt;
     }
 
-    public void setReservedAt(LocalDateTime reservedAt) {
-        this.reservedAt = reservedAt;
-    }
-
-    public LocalDateTime getReservedUntil() {
+    public LocalDate getReservedUntil() {
         return reservedUntil;
-    }
-
-    public void setReservedUntil(LocalDateTime reservedUntil) {
-        this.reservedUntil = reservedUntil;
     }
 
     public UUID getBookId() {
         return bookId;
     }
 
-    public void setBookId(UUID bookId) {
-        this.bookId = bookId;
-    }
-
     public UUID getUserId() {
         return userId;
-    }
-
-    public void setUserId(UUID userId) {
-        this.userId = userId;
     }
 }

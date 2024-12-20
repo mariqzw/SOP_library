@@ -5,16 +5,15 @@ import com.practice.demo.repositories.BookRepository;
 import com.practice.demo.repositories.ReservationRepository;
 import com.practice.demo.repositories.UserRepository;
 import com.practice.demo.services.ReservationService;
-import com.practice.demo.services.dtos.ReservationDto;
-import com.practice.demo.services.dtos.ShowReservationDto;
 import com.practice.demo.util.ValidationUtil;
 import jakarta.validation.ConstraintViolation;
+import org.libraryapi.dto.ReservationDto;
+import org.libraryapi.dto.ShowReservationDto;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -44,8 +43,8 @@ public class ReservationServiceImpl implements ReservationService {
             return;
         }
 
-        reservationDto.setReservedAt(LocalDateTime.now());;
-        reservationDto.setReservedUntil(LocalDateTime.now().plusDays(14));
+        reservationDto.setReservedAt(LocalDate.now().atStartOfDay());;
+        reservationDto.setReservedUntil(LocalDate.now().atStartOfDay().plusDays(14));
 
         Reservation reservation = modelMapper.map(reservationDto, Reservation.class);
 

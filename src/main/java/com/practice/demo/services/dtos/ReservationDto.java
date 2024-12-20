@@ -2,16 +2,13 @@ package com.practice.demo.services.dtos;
 
 import com.practice.demo.models.Book;
 
-import java.time.LocalDateTime;
-import java.util.UUID;
+import java.time.LocalDate;
 
 public class ReservationDto extends BaseEntityDto {
-    private UUID bookId;
-    private UUID userId;
     private String book;
     private String user;
-    private LocalDateTime reservedAt;
-    private LocalDateTime reservedUntil;
+    private LocalDate reservedAt;
+    private LocalDate reservedUntil;
 
     public String getBook() {
         return book;
@@ -29,35 +26,19 @@ public class ReservationDto extends BaseEntityDto {
         this.user = user;
     }
 
-    public LocalDateTime getReservedAt() {
+    public LocalDate getReservedAt() {
         return reservedAt;
     }
 
-    public void setReservedAt(LocalDateTime reservedAt) {
+    public void setReservedAt(LocalDate reservedAt) {
         this.reservedAt = reservedAt;
     }
 
-    public LocalDateTime getReservedUntil() {
+    public LocalDate getReservedUntil() {
         return reservedUntil;
     }
 
-    public void setReservedUntil(LocalDateTime reservedUntil) {
+    public void setReservedUntil(LocalDate reservedUntil) {
         this.reservedUntil = reservedUntil;
-    }
-
-    public UUID getBookId() {
-        return bookId;
-    }
-
-    public void setBookId(UUID bookId) {
-        this.bookId = bookId;
-    }
-
-    public UUID getUserId() {
-        return userId;
-    }
-
-    public void setUserId(UUID userId) {
-        this.userId = userId;
     }
 }

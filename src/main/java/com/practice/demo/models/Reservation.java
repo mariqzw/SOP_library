@@ -1,8 +1,9 @@
 package com.practice.demo.models;
 
+import com.practice.demo.enums.Status;
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "reservations")
@@ -11,16 +12,18 @@ public class Reservation extends BaseEntity {
     private Book book;
     @ManyToOne(optional = false)
     private User user;
-    private LocalDateTime reservedAt;
-    private LocalDateTime reservedUntil;
+    private LocalDate reservedAt;
+    private LocalDate reservedUntil;
+    private Status status;
 
     protected Reservation() {};
 
-    public Reservation(Book book, User user, LocalDateTime reservedAt, LocalDateTime reservedUntil) {
+    public Reservation(Book book, User user, LocalDate reservedAt, LocalDate reservedUntil, Status status) {
         this.book = book;
         this.user = user;
         this.reservedAt = reservedAt;
         this.reservedUntil = reservedUntil;
+        this.status = status;
     }
 
     @JoinColumn(name = "book_id", referencedColumnName = "id", nullable=false)
@@ -41,22 +44,31 @@ public class Reservation extends BaseEntity {
         this.user = user;
     }
 
-    @Column(name = "reservedAtTime", nullable = false)
-    public LocalDateTime getReservedAt() {
+    @Column(name = "reserved_at", nullable = false)
+    public LocalDate getReservedAt() {
         return reservedAt;
     }
 
-    public void setReservedAt(LocalDateTime reservedAt) {
+    public void setReservedAt(LocalDate reservedAt) {
         this.reservedAt = reservedAt;
     }
 
-    @Column(name = "reservedUntilTime", nullable = false)
-    public LocalDateTime getReservedUntil() {
+    @Column(name = "reserved_until", nullable = false)
+    public LocalDate getReservedUntil() {
         return reservedUntil;
     }
 
-    public void setReservedUntil(LocalDateTime reservedUntil) {
+    public void setReservedUntil(LocalDate reservedUntil) {
         this.reservedUntil = reservedUntil;
+    }
+
+    @Column(name = "status")
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     @Override
