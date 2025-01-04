@@ -7,7 +7,11 @@ import com.netflix.graphql.dgs.InputArgument;
 import com.practice.demo.services.BookService;
 import com.practice.demo.services.ReservationService;
 import com.practice.demo.services.UserService;
-import com.practice.demo.services.dtos.*;
+import org.libraryapi.dto.BookDto;
+import org.libraryapi.dto.UserDto;
+import org.libraryapi.dto.ReservationDto;
+import org.libraryapi.dto.ShowReservationDto;
+import org.libraryapi.dto.SubmittedReservationDto;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;

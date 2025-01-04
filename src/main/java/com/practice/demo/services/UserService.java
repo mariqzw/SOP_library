@@ -1,9 +1,8 @@
 package com.practice.demo.services;
 
-import com.practice.demo.services.dtos.UserDto;
-
 import java.util.List;
 import java.util.UUID;
+import org.libraryapi.dto.UserDto;
 
 public interface UserService {
     void register(UserDto userDto);

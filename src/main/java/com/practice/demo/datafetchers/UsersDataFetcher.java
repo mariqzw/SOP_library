@@ -5,7 +5,7 @@ import com.netflix.graphql.dgs.DgsMutation;
 import com.netflix.graphql.dgs.DgsQuery;
 import com.netflix.graphql.dgs.InputArgument;
 import com.practice.demo.services.UserService;
-import com.practice.demo.services.dtos.UserDto;
+import org.libraryapi.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;

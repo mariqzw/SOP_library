@@ -3,17 +3,15 @@ package com.practice.demo.services.impl;
 import com.practice.demo.models.User;
 import com.practice.demo.repositories.UserRepository;
 import com.practice.demo.services.UserService;
-import com.practice.demo.services.dtos.BookDto;
-import com.practice.demo.services.dtos.UserDto;
 import com.practice.demo.util.ValidationUtil;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.ConstraintViolation;
+import org.libraryapi.dto.UserDto;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 

@@ -43,8 +43,8 @@ public class ReservationServiceImpl implements ReservationService {
             return;
         }
 
-        reservationDto.setReservedAt(LocalDate.now().atStartOfDay());;
-        reservationDto.setReservedUntil(LocalDate.now().atStartOfDay().plusDays(14));
+        reservationDto.setReservedAt(LocalDate.now());;
+        reservationDto.setReservedUntil(LocalDate.now().plusDays(14));
 
         Reservation reservation = modelMapper.map(reservationDto, Reservation.class);
 

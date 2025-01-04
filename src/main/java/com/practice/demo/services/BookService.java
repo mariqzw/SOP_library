@@ -1,9 +1,8 @@
 package com.practice.demo.services;
 
-import com.practice.demo.services.dtos.BookDto;
-
 import java.util.List;
 import java.util.UUID;
+import org.libraryapi.dto.BookDto;
 
 public interface BookService {
     void addBook(BookDto bookDto);

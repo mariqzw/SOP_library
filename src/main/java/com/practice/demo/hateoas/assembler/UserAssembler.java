@@ -2,8 +2,9 @@ package com.practice.demo.hateoas.assembler;
 
 import com.practice.demo.controllers.ReservationController;
 import com.practice.demo.controllers.UserController;
-import com.practice.demo.hateoas.model.UserModel;
-import com.practice.demo.services.dtos.UserDto;
+
+import org.libraryapi.dto.UserDto;
+import org.libraryapi.model.UserModel;
 import org.springframework.hateoas.server.mvc.RepresentationModelAssemblerSupport;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;

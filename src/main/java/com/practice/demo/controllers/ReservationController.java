@@ -1,11 +1,10 @@
 package com.practice.demo.controllers;
 
 import com.practice.demo.hateoas.assembler.ReservationAssembler;
-import com.practice.demo.hateoas.model.ReservationModel;
-import com.practice.demo.hateoas.model.UserModel;
-import com.practice.demo.models.Reservation;
 import com.practice.demo.services.ReservationService;
-import com.practice.demo.services.dtos.ReservationDto;
+import org.libraryapi.controllers.ReservationApi;
+import org.libraryapi.dto.ReservationDto;
+import org.libraryapi.model.ReservationModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +13,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/reservations")
-public class ReservationController {
+public class ReservationController implements ReservationApi {
     private ReservationService reservationService;
     private ReservationAssembler reservationAssembler;
 
@@ -28,21 +27,25 @@ public class ReservationController {
         this.reservationAssembler = reservationAssembler;
     }
 
+    @Override
     @PostMapping("/add")
-    void addReservation(@RequestBody ReservationDto reservationDto, String username) {
+    public void addReservation(@RequestBody ReservationDto reservationDto, String username) {
         reservationService.register(reservationDto, username);
     }
 
+    @Override
     @GetMapping("/user/id/{id}")
     public CollectionModel<ReservationModel> getReservationsByUser(@PathVariable UUID id) {
         return reservationAssembler.toCollectionModel(reservationService.findAllReservationsByUser(id));
     }
 
+    @Override
     @GetMapping("/user/username/{username}")
     public CollectionModel<ReservationModel> getReservationsByUsername(@PathVariable String username) {
         return reservationAssembler.toCollectionModel(reservationService.findAllReservationsByUsername(username));
     }
 
+    @Override
     @GetMapping("/all")
     public CollectionModel<ReservationModel> getAllReservations() {
         return reservationAssembler.toCollectionModel(reservationService.getAll());

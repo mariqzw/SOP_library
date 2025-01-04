@@ -1,11 +1,9 @@
 package com.practice.demo.services;
 
-import com.practice.demo.services.dtos.ReservationDto;
-import com.practice.demo.services.dtos.ShowReservationDto;
-import com.practice.demo.services.dtos.UserDto;
-
 import java.util.List;
 import java.util.UUID;
+import org.libraryapi.dto.ReservationDto;
+import org.libraryapi.dto.ShowReservationDto;
 
 public interface ReservationService {
 

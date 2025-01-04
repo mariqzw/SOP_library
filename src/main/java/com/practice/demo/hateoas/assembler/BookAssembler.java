@@ -1,8 +1,8 @@
 package com.practice.demo.hateoas.assembler;
 
 import com.practice.demo.controllers.BookController;
-import com.practice.demo.hateoas.model.BookModel;
-import com.practice.demo.services.dtos.BookDto;
+import org.libraryapi.dto.BookDto;
+import org.libraryapi.model.BookModel;
 import org.springframework.hateoas.server.mvc.RepresentationModelAssemblerSupport;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
